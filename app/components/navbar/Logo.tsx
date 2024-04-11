@@ -9,7 +9,6 @@ const Logo = () => {
     <div
       onClick={() => router.push('/')}
       className="hidden md:block cursor-pointer text-green-500 text-5xl"
-       
     >
     StayEase
     </div>
