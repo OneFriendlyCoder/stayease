@@ -1,7 +1,7 @@
 "use client"
 
 interface NavbarProps{
-  currentUser?: User | null;               
+  currentUser?: SafeUser | null;               
 }
 
 import { User } from "@prisma/client";
@@ -9,6 +9,7 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./Usermenu";
+import { SafeUser } from "@/app/types";
 const Navbar:React.FC<NavbarProps> = ({currentUser}) => {
   return ( 
     <div className="fixed w-full z-10 ">
