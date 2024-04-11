@@ -43,6 +43,10 @@ const RegisterModal = () => {
       })
     }
 
+    const toggle = useCallback(() => {
+      loginModal.onClose();
+      registerModal.onOpen();
+    }, [loginModal, registerModal])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -78,10 +82,10 @@ const RegisterModal = () => {
         <div className="text-neutral-500 text-center mt-4 font-light">
           <div className="justify-center flex flex-rows items-center gap-2">
             <div>
-              Already have an account?
+              First time using StayEase?
             </div>
-          <div onClick={registerModal.onClose} className="text-neutral-800 cursor:pointer hover:underline">
-            Login
+          <div onClick={toggle} className="text-neutral-800 cursor:pointer hover:underline">
+            Create an account
           </div>
         </div>
         </div>
