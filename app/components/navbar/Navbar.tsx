@@ -1,5 +1,5 @@
 "use client"
-
+import Categories from "./Categories";
 interface NavbarProps{
   currentUser?: SafeUser | null;               
 }
@@ -31,6 +31,7 @@ const Navbar:React.FC<NavbarProps> = ({currentUser}) => {
         </div>
       </Container>
     </div>
+    <Categories />
   </div>
   );
 }
