@@ -1,13 +1,12 @@
 'use client'
 
 import useCountries from "@/app/hooks/useCountries";
-import { SafeUser } from "@/app/types";
-import { Stringifiable } from "query-string";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import { User } from "@prisma/client";
 interface ListingInfoProps{
-    user: SafeUser;
+    user: User;
     description: string;
     guestCount: number;
     roomCount: number;
