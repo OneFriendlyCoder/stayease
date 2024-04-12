@@ -17,12 +17,7 @@ export default async function getCurrentUser(){   //this is a direct conversatio
             }
         });
         if(!currentUser){return null;}
-        return {
-            ...currentUser,
-            createdAt: currentUser.createdAt.toISOString(),
-            updatedAt: currentUser.updatedAt.toISOString(),
-            emailVerified: currentUser.emailVerified?.toISOString() || null,
-        }
+        return currentUser;
     } catch (error) {
         return null;
     }

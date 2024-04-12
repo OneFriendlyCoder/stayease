@@ -5,9 +5,10 @@ import { SafeUser } from "../types";
 import useLoginModal from "./useLoginModal";
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import axios from "axios";
+import { User } from "@prisma/client";
 interface IUseFavorite{
     listingId: string;
-    currentUser?: SafeUser | null;
+    currentUser?: User | null;
 }
 
 const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {

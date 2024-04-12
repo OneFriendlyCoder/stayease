@@ -10,6 +10,7 @@ import useRentModal from "@/app/hooks/useRentModal";
 import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import { useRouter } from "next/navigation";
 
 
 interface UsermenuProps{
@@ -17,6 +18,7 @@ interface UsermenuProps{
 }
 
 const UserMenu:React.FC<UsermenuProps> = ({currentUser}) => {
+    const router = useRouter()
     const rentModal = useRentModal();
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
@@ -79,7 +81,7 @@ const UserMenu:React.FC<UsermenuProps> = ({currentUser}) => {
                 <div className="flex flex-col cursor-pointer">
                     {currentUser? (
                         <>
-                            <MenuItems onClick={()=>{}} label="My trips"/>
+                            <MenuItems onClick={()=>{router.push('/trips')}} label="My trips"/>
                             <MenuItems onClick={()=>{}} label="My Favourites"/>
                             <MenuItems onClick={()=>{}} label="My Reservations"/>
                             <MenuItems onClick={()=>{}} label="My Properties"/>
