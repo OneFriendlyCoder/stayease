@@ -1,7 +1,8 @@
 "use client"
+
 import Categories from "./Categories";
 interface NavbarProps{
-  currentUser?: SafeUser | null;               
+  currentUser?: User | null;               
 }
 
 import { User } from "@prisma/client";

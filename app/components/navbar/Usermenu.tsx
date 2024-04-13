@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 
 
 interface UsermenuProps{
-    currentUser?: SafeUser | null;
+    currentUser?: User | null;
 }
 
 const UserMenu:React.FC<UsermenuProps> = ({currentUser}) => {
