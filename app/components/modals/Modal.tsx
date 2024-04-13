@@ -173,11 +173,13 @@ const Modal: React.FC<ModalProps> = ({
                       outline
                     />  
                   )}
+                  <div className="mx-auto">
                   <Button 
                     disabled={disabled} 
                     label={actionLabel} 
                     onClick={handleSubmit}
                   />
+                  </div>
                 </div>
                 <div className="text-neutral-500">
                 </div>
