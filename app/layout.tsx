@@ -8,7 +8,7 @@ import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
-import { Suspense } from "react";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
