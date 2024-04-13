@@ -1,3 +1,5 @@
+'use client'
+
 import useSearchModal from "@/app/hooks/useSearchModal";
 import Modal from "./Modal";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,7 +13,7 @@ import Calender from "../listings/Calender";
 import Counter from "../inputs/Counter";
 import { Suspense } from "react";
 
-enum STEPS {
+enum STEPS{
     LOCATION = 0,
     DATE = 1,
     INFO = 2
@@ -40,10 +42,11 @@ const SearchModal = () => {
         setStep((value) => value + 1);
     }, [])
 
-    const onSubmit = useCallback(async () => {
-        if (step !== STEPS.INFO) { return onNext(); }
+    const onSubmit = useCallback(async () => 
+    {
+        if(step !== STEPS.INFO) {return onNext();}
         let currentQuery = {};
-        if (params) { currentQuery = queryString.parse(params.toString()) }
+        if(params){currentQuery = queryString.parse(params.toString())}
 
         const updatedQuery: any = {
             ...currentQuery,
@@ -51,17 +54,17 @@ const SearchModal = () => {
             roomCount,
             bathroomCount
         }
-        if (dateRange.startDate) {
+        if(dateRange.startDate){
             updatedQuery.startDate = formatISO(dateRange.startDate);
         }
-        if (dateRange.endDate) {
+        if(dateRange.endDate){
             updatedQuery.endDate = formatISO(dateRange.endDate);
         }
 
         const url = queryString.stringifyUrl({
             url: '/',
             query: updatedQuery
-        }, { skipNull: true })
+        }, {skipNull: true})
 
         setStep(STEPS.LOCATION);
         searchModal.onClose();
@@ -69,49 +72,49 @@ const SearchModal = () => {
     }, [step, searchModal, location, router, guestCount, roomCount, bathroomCount, dateRange, onNext, params])
 
     const actionLabel = useMemo(() => {
-        if (step === STEPS.INFO) {
+        if(step === STEPS.INFO){
             return 'Search'
         }
         return 'Next'
     }, [step])
 
     const secondaryActionLabel = useMemo(() => {
-        if (step === STEPS.LOCATION) { return undefined }
+        if(step === STEPS.LOCATION){return undefined}
         return 'Back'
     }, [step])
 
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading title="Where you wanna go ?" subtitle="Find the perfect location" />
-            <CountrySelect value={location} onChange={(value) => setLocation(value as CountrySelectValue)} />
-            <hr />
+            <CountrySelect value={location} onChange={(value)=>setLocation(value as CountrySelectValue)}/>
+            <hr/>
         </div>
     )
 
-    if (step === STEPS.DATE) {
+    if(step === STEPS.DATE){
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading title="When you plan to go ?" subtitle="Make sure everyone is free" />
-                <Calender value={dateRange} onChange={(value) => setDateRange(value.selection)} />
+                <Calender value={dateRange} onChange={(value) => setDateRange(value.selection)}/>
             </div>
         )
     }
 
-    if (step === STEPS.INFO) {
+    if(step === STEPS.INFO){
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading title="More information" subtitle="Find your perfect place" />
-                <Counter title="Guests" subtitle="How many guests are coming?" value={guestCount} onChange={(value) => setGuestCount(value)} />
-                <Counter title="Rooms" subtitle="How many rooms are coming?" value={roomCount} onChange={(value) => setRoomCount(value)} />
-                <Counter title="BathRoom" subtitle="How many bathrooms are coming?" value={bathroomCount} onChange={(value) => setBathroomCount(value)} />
+                <Heading title="More information" subtitle="Find your perfect place"/>
+                <Counter title="Guests" subtitle="How many guests are coming?" value={guestCount} onChange={(value) => setGuestCount(value)}/>
+                <Counter title="Rooms" subtitle="How many rooms are coming?" value={roomCount} onChange={(value) => setRoomCount(value)}/>
+                <Counter title="BathRoom" subtitle="How many bathrooms are coming?" value={bathroomCount} onChange={(value) => setBathroomCount(value)}/>
             </div>
         )
     }
-    return (
+    return (  
         <Suspense fallback={<div>Loading...</div>}>
-            <Modal isOpen={searchModal.isOpen} onClose={searchModal.onClose} onSubmit={onSubmit} title="Filters" actionLabel={actionLabel} body={bodyContent} secondaryAction={step === STEPS.LOCATION ? undefined : onBack} secondaryActionLabel={secondaryActionLabel} />
+        <Modal isOpen={searchModal.isOpen} onClose={searchModal.onClose} onSubmit={onSubmit} title="Filters" actionLabel={actionLabel} body={bodyContent} secondaryAction={step === STEPS.LOCATION ? undefined : onBack} secondaryActionLabel={secondaryActionLabel}/>
         </Suspense>
     );
 }
-
+ 
 export default SearchModal;
