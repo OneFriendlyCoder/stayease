@@ -2,6 +2,7 @@ import { Listing, User } from "@prisma/client";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import ListingCard from "../components/listings/ListingCard";
+import { Suspense } from "react";
 interface FavoritesClientProps{
     listings: Listing[];
     currentUser?: User;
@@ -10,6 +11,7 @@ interface FavoritesClientProps{
 const FavoritesClient:React.FC<FavoritesClientProps> = ({listings, currentUser}) => {
 
     return (  
+        <Suspense fallback={<div>Loading...</div>}>
         <div>
             <Container>
                 <Heading title="Favorites" subtitle="List of your favorite places"/>
@@ -20,6 +22,7 @@ const FavoritesClient:React.FC<FavoritesClientProps> = ({listings, currentUser})
                 </div>
             </Container>
         </div>
+        </Suspense>
     );
 }
  

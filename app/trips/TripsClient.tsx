@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ListingCard from "../components/listings/ListingCard";
-
+import { Suspense } from "react";
 interface ExtendedReservation extends Reservation {
     listing: Listing; 
 }
@@ -28,6 +28,7 @@ const TripsClient:React.FC<TripsClientProps> = ({reservations, currentUser}) => 
     }, [router])
 
     return (  
+        <Suspense fallback={<div>Loading...</div>}>
         <Container>
             <Heading title="Trips" subtitle="Where you have been and where are you going"/>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xlm:grid-cols-6 gap-8">
@@ -36,6 +37,7 @@ const TripsClient:React.FC<TripsClientProps> = ({reservations, currentUser}) => 
                 ))}
             </div>
         </Container>
+        </Suspense>
     );
 }
  

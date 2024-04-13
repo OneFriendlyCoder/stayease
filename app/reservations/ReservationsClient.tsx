@@ -8,7 +8,7 @@ import Heading from "../components/Heading";
 import Container from "../components/Container";
 import ListingCard from "../components/listings/ListingCard";
 import { User, Reservation, Listing } from "@prisma/client";
-
+import { Suspense } from "react";
 interface ExtendedReservation extends Reservation {
     listing: Listing; 
 }
@@ -34,6 +34,7 @@ const ReservationsClient:React.FC<ReservationClientProps> = ({reservations, curr
     }, [router])
 
     return (  
+        <Suspense fallback={<div>Loading...</div>}>
         <Container>
             <Heading title="Reservations" subtitle="Bookings on your property"/>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xlm:grid-cols-6 gap-8">
@@ -42,6 +43,7 @@ const ReservationsClient:React.FC<ReservationClientProps> = ({reservations, curr
                     ))}
             </div>
         </Container>
+        </Suspense>
     );
 }
  

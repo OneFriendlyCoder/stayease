@@ -112,7 +112,7 @@ const SearchModal = () => {
     }
     return (  
         <Suspense fallback={<div>Loading...</div>}>
-        <Modal isOpen={searchModal.isOpen} onClose={searchModal.onClose} onSubmit={onSubmit} title="Filters" actionLabel={actionLabel} body={bodyContent} secondaryAction={step === STEPS.LOCATION ? undefined : onBack} secondaryActionLabel={secondaryActionLabel}/>
+            <Modal isOpen={searchModal.isOpen} onClose={searchModal.onClose} onSubmit={onSubmit} title="Filters" actionLabel={actionLabel} body={bodyContent} secondaryAction={step === STEPS.LOCATION ? undefined : onBack} secondaryActionLabel={secondaryActionLabel}/>
         </Suspense>
     );
 }

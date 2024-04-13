@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ListingCard from "../components/listings/ListingCard";
-
+import { Suspense } from "react";
 interface PropertiesClientProps{
     listings: Listing[];
     currentUser?: User | null;
@@ -24,6 +24,7 @@ const PropertiesClient:React.FC<PropertiesClientProps> = ({listings, currentUser
     }, [router])
 
     return (  
+        <Suspense fallback={<div>Loading...</div>}>
         <Container>
             <div className="mt-[50px]">
                 <Heading title="Properties" subtitle="List of your properties"/>
@@ -34,6 +35,7 @@ const PropertiesClient:React.FC<PropertiesClientProps> = ({listings, currentUser
                 </div>
             </div>
         </Container>
+        </Suspense>
     );
 }
  
