@@ -12,7 +12,7 @@ import UserMenu from "./Usermenu";
 import { SafeUser } from "@/app/types";
 const Navbar:React.FC<NavbarProps> = ({currentUser}) => {
   return ( 
-    <div className="fixed w-full z-10 ">
+    <div className="fixed w-full z-10 bg-[#a8d4e4]/80">
       <div className="py-4">
       <Container>
         <div 
@@ -31,6 +31,7 @@ const Navbar:React.FC<NavbarProps> = ({currentUser}) => {
         </div>
       </Container>
     </div>
+    <hr />
     <Categories />
   </div>
   );

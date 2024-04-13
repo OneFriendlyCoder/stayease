@@ -18,22 +18,16 @@ interface ListingReservationProps{
 const ListingReservation:React.FC<ListingReservationProps> = ({price, dateRange, totalPrice, onChangeDate, onSubmit, disabledDates, disabled}) => {
     return (  
         <div className="bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
-            <div className="flex flex-rows items-center gap-1 p-4">
+            <div className="flex flex-rows items-center gap-1 p-4 justify-around">
                 <div className="text-2xl font-semibold">
-                    ${price}
-                </div>
-                <div className="font-light text-neutral-600">
-                    night
+                    ${price}/ <span className="font-light text-neutral-400">night</span>
                 </div>
                 <hr/>
                 <Calender value={dateRange} disabledDates={disabledDates} onChange={(value) => onChangeDate(value.selection)}/>
                 <hr/>
-                <div className="p-4">
+                <div className="grid grid-cols-1">
                     <Button disabled={disabled} label="Reserve" onClick={onSubmit}/>
-                </div>
-                <div className="flex flex-row items-center justify-between font-semibold text-lg">
-                     <div>Total</div>
-                     <div>${totalPrice}</div>
+                    <span className="mt-[10px]">Total: ${totalPrice}</span>
                 </div>
             </div>
         </div>

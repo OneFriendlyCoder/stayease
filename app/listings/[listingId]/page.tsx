@@ -3,8 +3,7 @@ import EmptyState from "@/app/components/EmptyState";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ListingClient from "./ListingClient";
 import getReservations from "@/app/actions/getReservations";
-import { SafeUser } from "@/app/types";
-
+import { User } from "@prisma/client";
 
 interface IParams{
     listingId?: string;
@@ -13,7 +12,7 @@ interface IParams{
 const ListingPage = async ({params}:{params: IParams}) => {
     const listing = await getListingById(params);
     const reservations = await getReservations(params);
-    const currentUser = await getCurrentUser() as SafeUser;
+    const currentUser = await getCurrentUser() as User;
     if(!listing){
         return (
             <EmptyState />

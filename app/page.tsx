@@ -20,7 +20,7 @@ export default async function Home({searchParams}: HomeProps) {
 
   return (
     <Container>
-      <div className="pt-24 grid grid-cols-12 gap-8">
+      <div className="pt-[140px] grid grid-cols-12 gap-8">
         {listings.map((listing: any) => (
           <div key={listing.id} className="col-span-2">
             <ListingCard data={listing} currentUser={currentUser} />

@@ -53,14 +53,14 @@ const Search = () => {
         cursor-pointer
       "
     >
-    <div className="flex flex-row items-center justify-between">
-        <div className="text-sm font-semibold rounded-full hover:bg-yellow-300 py-3 px-6 text-green-900">
+    <div className="pl-[100px] flex flex-row items-center justify-between">
+        <div className="text-sm font-semibold rounded-full hover:bg-[#1a213b] py-3 px-6 text-[#1a213b] hover:text-white">
             {locationLabel}
         </div>
-        <div className="hidden sm:block text-sm font-semibold rounded-full hover:bg-yellow-300 text-green-900 px-6 py-3 flex-1 text-center">
+        <div className="hidden sm:block text-sm font-semibold rounded-full hover:bg-[#1a213b] text-[#1a213b] hover:text-white px-6 py-3 flex-1 text-center">
             {durationLabel}
         </div>
-        <div className="text-sm pl-6 pr-2 text-gray-900 flex flex-row items-center gap-3">
+        <div className="text-sm rounded-full px-6 py-3 hover:bg-[#1a213b] text-[#1a213b] hover:text-white flex flex-row items-center gap-3">
             <div className="hidden sm:block">
                 {guestLabel}
             </div>

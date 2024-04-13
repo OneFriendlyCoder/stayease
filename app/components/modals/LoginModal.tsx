@@ -25,23 +25,29 @@ const RegisterModal = () => {
         }
     })
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {      //signin using next-auth signIn function
-      signIn('credentials', {
-        ...data,
-        redirect: false,
-      }).then((callback) => {
-        setIsLoading(false);
-
-        if(callback?.ok){
-          toast.success("logged in");
+    const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+      setIsLoading(true); // Set loading to true when starting the sign-in process
+      try {
+        const callback = await signIn('credentials', {
+          ...data,
+          redirect: false,
+        });
+    
+        setIsLoading(false); 
+        if (callback?.ok) {
+          toast.success("Logged in");
           router.refresh();
           loginModal.onClose();
+        } else {
+          toast.error("Invalid credentials");
         }
-        if(callback?.error){
-          toast.error(callback.error);
-        }
-      })
-    }
+      } catch (error) {
+        setIsLoading(false); 
+        toast.error("An error occurred while signing in");
+        console.error("Sign-in error:", error);
+      }
+    };
+    
 
     const toggle = useCallback(() => {
       loginModal.onClose();
@@ -78,7 +84,6 @@ const RegisterModal = () => {
     const footerContent = (
       <div className="flex flex-col gap-4 mt-3">
         <hr/>
-        <Button outline label="Continue with Google" icon={FcGoogle} onClick={()=>{}}/>
         <div className="text-neutral-500 text-center mt-4 font-light">
           <div className="justify-center flex flex-rows items-center gap-2">
             <div>

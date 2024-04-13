@@ -46,7 +46,7 @@ const ListingCard:React.FC<ListingCardProps> = ({data, reservation, onAction, di
     }, [reservation])
 
     return (  
-        <div className="col-span-1 cursor-pointer group" onClick={() => router.push(`/listings/${data.id}`)}>
+        <div className="col-span-1 cursor-pointer rounded-2xl group bg-white shadow-lg" onClick={() => router.push(`/listings/${data.id}`)}>
             <div className="flex flex-col gap-2 w-full">
                 <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                     <Image alt="Listing" src={data.imageSrc} className="object-cover h-full w-full group-hover:scale-110 transition" fill/>
@@ -54,18 +54,18 @@ const ListingCard:React.FC<ListingCardProps> = ({data, reservation, onAction, di
                         <HeartButton listingId={data.id} currentUser={currentUser}/>
                     </div>
                 </div>
-                <div className="font-semibold text-lg">
-                    {location?.region},{location?.label}
+                <div className="font-base text-1xl mx-auto">
+                    {location?.label}, {location?.region}
                 </div>
-                <div className="fonr-light text-neutral-500">
+                <div className="fonr-light text-neutral-500 mx-auto">
                     {reservationDate || data.category}
                 </div> 
-                <div className="flex flex-row items-center gap-1">
+                <div className="flex flex-row items-center gap-1 mx-auto mb-[10px]">
                     <div className="font-semibold">
                         ${price}
                     </div>
                     {!reservation && (
-                        <div className="font-light">night</div>
+                        <div className="font-light">/night</div>
                     )}
                 </div>
                 {onAction && actionLabel && (

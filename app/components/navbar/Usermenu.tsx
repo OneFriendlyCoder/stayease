@@ -46,10 +46,10 @@ const UserMenu:React.FC<UsermenuProps> = ({currentUser}) => {
             py-3 
             px-4 
             rounded-full 
-            hover:bg-yellow-300 
+            hover:bg-[#1a213b]
             transition 
             cursor-pointer
-            text-green-900
+            text-[#1a213b] hover:text-white
           "
         >
                 Rent your home
@@ -69,10 +69,9 @@ const UserMenu:React.FC<UsermenuProps> = ({currentUser}) => {
 
                 "
             >
-                <AiOutlineMenu/>
                 <div className="
                 hidden md:block">
-                    <Avatar src=""/>
+                    <Avatar src = {currentUser?.image ? currentUser?.image : "/images/logo1.png"}/>
                 </div>
             </div>
         </div>

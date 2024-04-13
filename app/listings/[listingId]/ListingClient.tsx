@@ -25,7 +25,7 @@ const initialDateRange = {
 interface ListingClientProps{
     reservations?: Reservation[];
     listing: Listing & {user: User};
-    currentUser?: SafeUser;
+    currentUser?: User;
 }
 
 const ListingClient:React.FC<ListingClientProps> = ({listing, currentUser, reservations=[]}) => {
@@ -84,7 +84,7 @@ const ListingClient:React.FC<ListingClientProps> = ({listing, currentUser, reser
 
     return (  
         <Container>
-            <div className="max-w-screen-lg mx-auto">
+            <div className="max-w-screen-lg mx-auto mt-[100px]">
                 <div className="flex flex-col gap-6">
                     <ListingHead title={listing.title} imageSrc={listing.imageSrc} locationValue={listing.locationValue} id={listing.id} currentUser={currentUser}/>
                 </div>
