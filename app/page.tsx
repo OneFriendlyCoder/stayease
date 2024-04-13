@@ -3,7 +3,7 @@ import getListings, { IListingParams } from "./actions/getListings";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
-
+import { Suspense } from "react";
 interface HomeProps{
   searchParams: IListingParams;
 }
@@ -19,6 +19,7 @@ export default async function Home({searchParams}: HomeProps) {
   }
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <Container>
       <div className="pt-[140px] grid grid-cols-12 gap-8">
         {listings.map((listing: any) => (
@@ -28,5 +29,6 @@ export default async function Home({searchParams}: HomeProps) {
         ))}
       </div>
     </Container>
+    </Suspense>
   );
 }
