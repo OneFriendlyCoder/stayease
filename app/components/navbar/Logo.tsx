@@ -8,7 +8,7 @@ const Logo = () => {
   return ( 
     <div
       onClick={() => router.push('/')}
-      className="hidden md:block cursor-pointer text-green-500 text-5xl"
+      className="md:block cursor-pointer text-green-500 text-5xl flex flex-cols"
     >
     <Image src="/images/logo.png" width={80} height={80} alt="StayEase"/>
     </div>

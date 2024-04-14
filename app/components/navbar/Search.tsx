@@ -54,18 +54,18 @@ const Search = () => {
         cursor-pointer
       "
     >
-    <div className="pl-[100px] flex flex-row items-center justify-between">
-        <div className="text-sm font-semibold rounded-full hover:bg-[#1a213b] py-3 px-6 text-[#1a213b] hover:text-white">
+    <div className="flex flex-col gap-0 items-start md:pl-[100px] md:flex md:flex-row md:items-center justify-between">
+        <div className="text-sm font-semibold text-gray-500 hover:text-gray-950 rounded-full md:hover:bg-[#1a213b] md:py-3 px-6 md:text-[#1a213b] md:hover:text-white">
             {locationLabel}
         </div>
-        <div className="hidden sm:block text-sm font-semibold rounded-full hover:bg-[#1a213b] text-[#1a213b] hover:text-white px-6 py-3 flex-1 text-center">
+        <div className="sm:block text-sm font-semibold text-gray-500 hover:text-gray-950 rounded-full md:hover:bg-[#1a213b] md:text-[#1a213b] md:hover:text-white px-6 md:py-3 flex-1 text-center">
             {durationLabel}
         </div>
-        <div className="text-sm rounded-full px-6 py-3 hover:bg-[#1a213b] text-[#1a213b] hover:text-white flex flex-row items-center gap-3">
-            <div className="hidden sm:block">
+        <div className="text-sm rounded-full px-6 md:py-3 text-gray-500 hover:text-gray-950 md:hover:bg-[#1a213b] md:text-[#1a213b] md:hover:text-white flex flex-row items-center gap-3">
+            <div className="sm:block">
                 {guestLabel}
             </div>
-            <div className="p-2 bg-green-500 rounded-full text-white">
+            <div className="md:p-2 p-1 bg-green-500 rounded-full text-white">
                 <BiSearch />
             </div>
         </div>
