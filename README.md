@@ -52,4 +52,4 @@ A modern web application built with [Next.js](https://nextjs.org/), bootstrapped
     # or
     bun dev
    ```
-- ** Then, open http://localhost:3000 in your browser to see the app in action.
+- Then, open http://localhost:3000 in your browser to see the app in action.
